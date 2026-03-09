@@ -1,5 +1,6 @@
 # 🦞 OpenClaw 生命算法 · 让AI拥有灵魂
 
+
 [![GitHub stars](https://img.shields.io/github/stars/znsyhandao/openclaw-life-algorithm)](https://github.com/znsyhandao/openclaw-life-algorithm/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
