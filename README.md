@@ -19,3 +19,14 @@
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/znsyhandao/openclaw-life-algorithm/main/scripts/quick-start.sh | bash
+
+## ✅ 已验证环境
+
+| 环境 | 状态 | 验证者 |
+|------|------|--------|
+| Ubuntu 22.04 | ✅ 全部通过 | @znsyhandao |
+| macOS 14 | ✅ 全部通过 | @znsyhandao |
+| Windows 11 + Git Bash | ⚠️ 部分通过 | @znsyhandao |
+| Windows 11 + PowerShell | ⚠️ 需管理员 | @znsyhandao |
+
+欢迎提交你的验证结果！
