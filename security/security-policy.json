@@ -1,0 +1,6 @@
+{
+  "security": {
+    "dmPolicy": "paired-only",
+    "groupPolicy": "allowlist"
+  }
+}
