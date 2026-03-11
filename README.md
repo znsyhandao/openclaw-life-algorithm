@@ -10,4 +10,4 @@
 ## 🚀 一分钟快速安装
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/你的用户名/openclaw-life-algorithm/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/znsyhandao/openclaw-life-algorithm/main/install.sh | bash
