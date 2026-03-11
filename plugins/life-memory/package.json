@@ -1,5 +1,23 @@
 {
-  "name": "life-memory",
-  "version": "2.0.0",
-  "description": "记忆主权插件"
+  "name": "openclaw-plugin-life-memory",
+  "version": "1.0.0",
+  "description": "记忆主权插件 - 透明、可编辑、Git友好的OpenClaw记忆管理",
+  "main": "index.js",
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "memory",
+    "context-engine",
+    "life-algorithm"
+  ],
+  "author": "cqs10",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cqs10/openclaw-life-algorithm"
+  },
+  "openclaw": {
+    "type": "context-engine",
+    "minVersion": "2026.3.7"
+  }
 }
