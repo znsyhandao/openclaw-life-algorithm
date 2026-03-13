@@ -1,0 +1,24 @@
+{
+  "name": "openclaw-plugin-life-validation",
+  "version": "1.0.1",
+  "description": "验证层插件 - 冲突检测、可信度裁决，让AI学会分辨该信什么",
+  "main": "index.js",
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "validation",
+    "confidence",
+    "conflict-detection",
+    "life-algorithm"
+  ],
+  "author": "cqs10",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cqs10/openclaw-life-algorithm.git"
+  },
+  "openclaw": {
+    "type": "context-engine",
+    "minVersion": "2026.3.7"
+  }
+}

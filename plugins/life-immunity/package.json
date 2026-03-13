@@ -1,0 +1,25 @@
+{
+  "name": "openclaw-plugin-life-immunity",
+  "version": "1.0.0",
+  "description": "免疫系统插件 - 安全审计、权限控制、沙箱隔离，给AI穿上钢铁盔甲",
+  "main": "index.js",
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "security",
+    "audit",
+    "hardening",
+    "sandbox",
+    "life-algorithm"
+  ],
+  "author": "cqs10",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cqs10/openclaw-life-algorithm.git"
+  },
+  "openclaw": {
+    "type": "context-engine",
+    "minVersion": "2026.3.7"
+  }
+}

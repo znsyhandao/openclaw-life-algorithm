@@ -1,0 +1,10 @@
+{
+  "name": "life-memory",
+  "version": "1.0.1",
+  "description": "记忆主权插件 - 透明、可编辑、Git友好的OpenClaw记忆管理",
+  "author": "cqs10",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "context-engine",
+  "minOpenClawVersion": "2026.3.7"
+}
