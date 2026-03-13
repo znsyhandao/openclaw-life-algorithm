@@ -33,3 +33,4 @@ temp/
 *.bak
 *.backup
 *.tar.gz.npmrc
+.npmrc

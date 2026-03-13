@@ -1,7 +1,7 @@
 {
   "name": "openclaw-plugin-life-memory",
-  "version": "1.1.0",
-  "description": "记忆主权插件 - 透明、可编辑、Git友好的OpenClaw记忆管理",
+  "version": "1.1.2",
+  "description": "记忆主权插件 - 透明、可编辑、Git友好的OpenClaw记忆管理（支持 /memory-setup 一键配置）",
   "main": "index.js",
   "files": [
     "index.js",
@@ -18,7 +18,8 @@
     "plugin",
     "memory",
     "context-engine",
-    "life-algorithm"
+    "life-algorithm",
+    "one-click"
   ],
   "author": "cqs10",
   "license": "MIT",
