@@ -32,4 +32,4 @@ temp/
 # 备份文件
 *.bak
 *.backup
-*.tar.gz
+*.tar.gz.npmrc
