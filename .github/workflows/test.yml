@@ -1,0 +1,39 @@
+name: Test Plugins
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    
+    - name: Install dependencies
+      run: |
+        cd plugins/life-validation
+        npm install --ignore-scripts
+    
+    - name: Run life-validation tests
+      run: |
+        cd plugins/life-validation
+        node tests/test-audit.js
+    
+    - name: Run life-memory tests (if any)
+      run: |
+        cd plugins/life-memory
+        if [ -d tests ]; then node tests/test-*.js; else echo "No tests"; fi
+      continue-on-error: true
