@@ -1,6 +1,5 @@
-// life-validation/index.js - 完整版 v1.3.0
+// life-validation/index.js - 完整版 v1.2.0
 // 新增：认知负荷计算、情绪权重、自我可答性、动态冲突等级
-// 修改：命令名改为 lv-setup/lv-status 避免与内置命令冲突
 const fs = require('fs').promises;
 const path = require('path');
 const { exec } = require('child_process');
@@ -13,18 +12,17 @@ const logger = require('./lib/logger');
  * life-validation 插件
  * 
  * 验证层插件 - 冲突检测、可信度裁决
- * 版本: 1.3.0
+ * 版本: 1.2.0
  * 新增: 
  *   - 认知负荷计算 (Cognitive Load)
  *   - 情绪权重 (Emotional Weight)
  *   - 自我可答性评估 (Self-Answerability)
  *   - 动态冲突等级调整
- *   - 命令名改为 lv-setup/lv-status 避免冲突
  */
 
 module.exports = {
   name: 'life-validation',
-  version: '1.3.0',
+  version: '1.2.0',
   description: '验证层插件 - 冲突检测、可信度裁决（带认知负荷、情绪权重、自我可答性）',
   
   // ==================== 核心钩子 ====================
@@ -152,6 +150,30 @@ module.exports = {
      * /resolve <conflictId> <decision>
      * 裁决冲突
      */
+    // 在 index.js 的 commands 对象中添加
+    async 'audit-memory'(context, args) {
+      const { agentId } = context;
+      const audit = require('./lib/audit');
+      
+      try {
+        // 生成报告
+        const report = await audit.generateAuditReport(agentId);
+        const formatted = audit.formatReport(report);
+        
+        // 如果有冲突，保存到会话上下文
+        if (report.conflicting.length > 0) {
+          context.report = report;
+        }
+        
+        return { message: formatted };
+        
+      } catch (err) {
+        return { 
+          message: `❌ 审计失败: ${err.message}\n请稍后重试。`,
+          error: true 
+        };
+      }
+    },
     async resolve(context, args) {
       const [conflictId, decision] = args;
       
@@ -183,7 +205,7 @@ module.exports = {
         conflictId,
         decision,
         timestamp: new Date().toISOString(),
-        version: '1.3.0'
+        version: '1.2.0'
       }) + '\n';
       
       await fs.mkdir(path.dirname(resolutionFile), { recursive: true });
@@ -230,42 +252,15 @@ module.exports = {
     },
     
     /**
-     * /audit-memory - 记忆审计
+     * /validation-setup - 一键配置 life-validation 插件
      */
-    async 'audit-memory'(context, args) {
-      const { agentId } = context;
-      const audit = require('./lib/audit');
-      
-      try {
-        // 生成报告
-        const report = await audit.generateAuditReport(agentId);
-        const formatted = audit.formatReport(report);
-        
-        // 如果有冲突，保存到会话上下文
-        if (report.conflicting.length > 0) {
-          context.report = report;
-        }
-        
-        return { message: formatted };
-        
-      } catch (err) {
-        return { 
-          message: `❌ 审计失败: ${err.message}\n请稍后重试。`,
-          error: true 
-        };
-      }
-    },
-    
-    /**
-     * /lv-setup - 一键配置 life-validation 插件（原 validation-setup）
-     */
-    async 'lv-setup'(context, args) {
+    async 'validation-setup'(context, args) {
       const steps = [];
       const homeDir = process.env.HOME || process.env.USERPROFILE;
       const configPath = path.join(homeDir, '.openclaw', 'openclaw.json');
       
       try {
-        steps.push('🔧 开始配置 life-validation v1.3.0...');
+        steps.push('🔧 开始配置 life-validation v1.2.0...');
         
         // 1. 读取现有配置
         let config = {};
@@ -339,7 +334,7 @@ module.exports = {
         
         // 6. 返回成功消息
         return {
-          message: `🎉 life-validation v1.3.0 配置完成！\n\n` +
+          message: `🎉 life-validation v1.2.0 配置完成！\n\n` +
                    steps.join('\n') +
                    `\n\n📝 新功能说明：\n` +
                    `- 🧠 认知负荷计算: 自动检测记忆过载\n` +
@@ -349,8 +344,7 @@ module.exports = {
                    `📋 可用命令：\n` +
                    `/conflicts              # 查看待裁决冲突\n` +
                    `/resolve <ID> <决策>    # 裁决冲突\n` +
-                   `/lv-status               # 查看插件状态\n` +
-                   `/audit-memory            # 记忆审计`
+                   `/validation-status       # 查看插件状态`
         };
         
       } catch (err) {
@@ -364,9 +358,10 @@ module.exports = {
     },
     
     /**
-     * /lv-status - 查看插件状态（原 validation-status）
+     * /validation-status - 查看插件状态（升级版）
+     * 新增：显示认知负荷、情绪权重等信息
      */
-    async 'lv-status'(context, args) {
+    async 'validation-status'(context, args) {
       const { agentId, longTerm, messages } = context;
       const homeDir = process.env.HOME || process.env.USERPROFILE;
       const configPath = path.join(homeDir, '.openclaw', 'openclaw.json');
@@ -396,7 +391,7 @@ module.exports = {
             configStatus = '✅ 已在插件链中';
             chainInfo = `插件链: ${config.contextEngine.chain.join(' → ')}`;
           } else {
-            configStatus = '⚠️ 未启用（运行 /lv-setup 配置）';
+            configStatus = '⚠️ 未启用（运行 /validation-setup 配置）';
           }
         } catch {
           configStatus = '❌ 配置文件不存在';
@@ -451,9 +446,7 @@ module.exports = {
                    `- 动态冲突等级: 负荷越高，冲突越严重\n\n` +
                    `📋 可用命令:\n` +
                    `/conflicts              # 查看待裁决冲突\n` +
-                   `/resolve <ID> <决策>    # 裁决冲突\n` +
-                   `/lv-setup                # 一键配置\n` +
-                   `/audit-memory            # 记忆审计`
+                   `/resolve <ID> <决策>    # 裁决冲突`
         };
         
       } catch (err) {

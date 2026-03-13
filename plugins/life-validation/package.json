@@ -1,16 +1,22 @@
 {
   "name": "openclaw-plugin-life-validation",
-  "version": "1.2.0",
-  "description": "验证层插件 - 冲突检测、可信度裁决（带认知负荷、情绪权重、自我可答性）",
+  "version": "1.3.0",
+  "description": "验证层插件 - 冲突检测、可信度裁决（带认知负荷、情绪权重、自我可答性）、记忆审计、健康报告",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/",
+    "openclaw.plugin.json"
+  ],
   "keywords": [
     "openclaw",
     "plugin",
     "validation",
     "confidence",
     "conflict-detection",
-    "life-algorithm",
-    "one-click"
+    "memory-audit",
+    "health-report",
+    "life-algorithm"
   ],
   "author": "cqs10",
   "license": "MIT",
