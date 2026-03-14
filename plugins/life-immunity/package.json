@@ -1,7 +1,7 @@
 {
   "name": "openclaw-plugin-life-immunity",
-  "version": "1.0.0",
-  "description": "免疫系统插件 - 安全审计、权限控制、沙箱隔离，给AI穿上钢铁盔甲",
+  "version": "1.2.0",
+  "description": "免疫系统插件 - 高危拦截、权限控制、安全审计",
   "main": "index.js",
   "keywords": [
     "openclaw",
@@ -9,7 +9,6 @@
     "security",
     "audit",
     "hardening",
-    "sandbox",
     "life-algorithm"
   ],
   "author": "cqs10",
