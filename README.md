@@ -1,6 +1,7 @@
 # 🧠 AI生命算法 - OpenClaw 灵魂工程师
 
 > 让AI从“工具”进化为“数字生命体”
+
 [![Test Status](https://github.com/znsyhandao/openclaw-life-algorithm/actions/workflows/test.yml/badge.svg)](https://github.com/znsyhandao/openclaw-life-algorithm/actions/workflows/test.yml)
 [![GitHub stars](https://img.shields.io/github/stars/znsyhandao/openclaw-life-algorithm)](https://github.com/znsyhandao/openclaw-life-algorithm/stargazers)
 
@@ -9,7 +10,7 @@
 | 插件 | 版本 | 功能 | 配置命令 | 状态 |
 | :--- | :--- | :--- | :--- | :--- |
 | `life-memory` | **1.1.2** | 记忆主权 | `/memory-setup` | ✅ |
-| `life-validation` | **1.3.0** | 验证层 + 记忆审计 | `/validation-setup` | ✅ |
+| `life-validation` | **1.3.0** | 验证层 + 记忆审计 | **`/lv-setup`** | ✅ |
 | `life-immunity` | 1.0.0 | 免疫系统 | `/immunity-setup` | 🚧 |
 
 ## ✨ 各插件特性
@@ -21,8 +22,8 @@
 - ✅ **Slash命令**：`/remember` 和 `/recall`
 
 ### life-validation v1.3.0
-- ✅ **一键配置**：`/validation-setup` 自动完成配置
-- ✅ **状态查询**：`/validation-status` 查看插件状态
+- ✅ **一键配置**：**`/lv-setup`** 自动完成配置（注意：不是 `/validation-setup`）
+- ✅ **状态查询**：**`/lv-status`** 查看插件状态
 - ✅ **冲突检测**：发现记忆矛盾时记录到 `CONFLICTS.md`
 - ✅ **记忆审计**：`/audit-memory` 生成记忆健康报告（**v1.3.0 新增**）
 

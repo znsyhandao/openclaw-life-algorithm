@@ -1,0 +1,14 @@
+{
+  "validator_name": "Life Validation Network",
+  "version": "1.0.0",
+  "description": "Decentralized memory validation service for AI agents",
+  "api_endpoint": "https://api.life-validation.net/v1",
+  "capabilities": ["confidence_scoring", "conflict_detection"],
+  "fee_model": "freemium",
+  "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu1SU1LfVLPHCYZM5G2Lv\n...\n-----END PUBLIC KEY-----",
+  "docs_url": "https://github.com/znsyhandao/life-validation-service",
+  "rate_limits": {
+    "free": "100 requests/day",
+    "pro": "unlimited"
+  }
+}
