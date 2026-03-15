@@ -1,0 +1,35 @@
+{
+  "name": "openclaw-plugin-life-epidemic",
+  "version": "10.0.0",
+  "description": "LVP v10.0 - 自免疫记忆协议 (SSGM + 贝叶斯信任 + MESI协议)",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/",
+    "tests/",
+    "README.md"
+  ],
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "memory",
+    "security",
+    "ssgm",
+    "bayesian",
+    "mesi",
+    "life-algorithm"
+  ],
+  "author": "cqs10",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/znsyhandao/openclaw-life-algorithm.git"
+  },
+  "openclaw": {
+    "type": "context-engine",
+    "minVersion": "2026.3.7"
+  },
+  "scripts": {
+    "test": "node tests/test-ssgm.js && node tests/test-bayesian-simple.js && node tests/test-mesi.js"
+  }
+}
